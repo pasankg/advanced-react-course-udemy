@@ -1,23 +1,52 @@
 import SplitScreen from "./components/split-screen.jsx";
+import List from "./components/lists/List.jsx";
 
-const LeftSdeComponent = ({ title }) => {
+import dataAuthors from "./data/authors.js";
+import dataBooks from "./data/books.js";
+
+import SmallAuthorListItem from "./components/authors/SmallListItems.jsx";
+import LargeAuthorListItem from "./components/authors/LargeListItems.jsx";
+
+import SmallBookListItem from "./components/books/SmallListItems.jsx";
+
+const LeftSdeComponent = ({ title }: { title: string }) => {
   return <h2 style={{ backgroundColor: "red" }}>{title}</h2>;
 };
 
-const RightSideComponent = ({ title }) => {
+const RightSideComponent = ({ title }: { title: string }) => {
   return <h2 style={{ backgroundColor: "green" }}>{title}</h2>;
 };
 
 function App() {
   return (
-    // version 1
-    // <SplitScreen Left={LeftSdeComponent} Right={RightSideComponent} leftWidth = {1} rightWidth = {2}/>
+    <>
+      {/* version 1 */}
+      {/* <SplitScreen Left={LeftSdeComponent} Right={RightSideComponent} leftWidth = {1} rightWidth = {2}/> */}
 
-    // version 2
-    <SplitScreen leftWidth={1} rightWidth={2}>
-      <LeftSdeComponent title={`I'm Left Side`} />
-      <RightSideComponent title={`I'm Right Side`} />
-    </SplitScreen>
+      {/* version 2 */}
+      <SplitScreen leftWidth={1} rightWidth={2}>
+        <LeftSdeComponent title={`I'm Left Side`} />
+        <RightSideComponent title={`I'm Right Side`} />
+      </SplitScreen>
+
+      <List
+        items={dataAuthors}
+        sourceName={"author"}
+        ItemComponent={SmallAuthorListItem}
+      />
+
+      <List
+        items={dataAuthors}
+        sourceName={"author"}
+        ItemComponent={LargeAuthorListItem}
+      />
+
+      <List
+        items={dataBooks}
+        sourceName={"book"}
+        ItemComponent={SmallBookListItem}
+      />
+    </>
   );
 }
 
