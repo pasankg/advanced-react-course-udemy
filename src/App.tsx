@@ -1,13 +1,13 @@
-import SplitScreen from "./components/split-screen.jsx";
-import List from "./components/lists/List.jsx";
+import SplitScreen from "./components/split-screen.js";
+import List from "./components/lists/List.js";
 
 import dataAuthors from "./data/authors.js";
 import dataBooks from "./data/books.js";
 
-import SmallAuthorListItem from "./components/authors/SmallListItems.jsx";
-import LargeAuthorListItem from "./components/authors/LargeListItems.jsx";
+import SmallAuthorListItem from "./components/authors/SmallListItems.js";
+import LargeAuthorListItem from "./components/authors/LargeListItems.js";
 
-import SmallBookListItem from "./components/books/SmallListItems.jsx";
+import SmallBookListItem from "./components/books/SmallListItems.js";
 
 const LeftSdeComponent = ({ title }: { title: string }) => {
   return <h2 style={{ backgroundColor: "red" }}>{title}</h2>;
