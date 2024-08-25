@@ -1,13 +1,13 @@
-import SplitScreen from "./components/split-screen.js";
-import List from "./components/lists/List.js";
+import SplitScreen from "./chapter_2_layout_components/components/split-screen.js";
+import List from "./chapter_2_layout_components/components/lists/List.js";
 
-import dataAuthors from "./data/authors.js";
-import dataBooks from "./data/books.js";
+import dataAuthors from "./chapter_2_layout_components/data/authors.js";
+import dataBooks from "./chapter_2_layout_components/data/books.js";
 
-import SmallAuthorListItem from "./components/authors/SmallListItems.js";
-import LargeAuthorListItem from "./components/authors/LargeListItems.js";
+import SmallAuthorListItem from "./chapter_2_layout_components/components/authors/SmallListItems.js";
+import LargeAuthorListItem from "./chapter_2_layout_components/components/authors/LargeListItems.js";
 
-import SmallBookListItem from "./components/books/SmallListItems.js";
+import SmallBookListItem from "./chapter_2_layout_components/components/books/SmallListItems.js";
 
 const LeftSdeComponent = ({ title }: { title: string }) => {
   return <h2 style={{ backgroundColor: "red" }}>{title}</h2>;
