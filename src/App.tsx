@@ -9,6 +9,10 @@ import LargeAuthorListItem from "./layout_components/components/authors/LargeLis
 
 import SmallBookListItem from "./layout_components/components/books/SmallListItems.js";
 
+// import { ResourceLoader } from "./container_components/resource-loader.tsx";
+import { CurrentUserLoader } from "./container_components/current-user-loader.tsx";
+import {UserInfo} from "./container_components/user-info.tsx";
+
 const LeftSdeComponent = ({ title }: { title: string }) => {
   return <h2 style={{ backgroundColor: "red" }}>{title}</h2>;
 };
@@ -46,6 +50,10 @@ function App() {
         sourceName={"book"}
         ItemComponent={SmallBookListItem}
       />
+
+      <CurrentUserLoader>
+        <UserInfo/>
+      </CurrentUserLoader>
     </>
   );
 }
