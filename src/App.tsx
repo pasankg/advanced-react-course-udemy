@@ -12,6 +12,7 @@ import SmallBookListItem from "./layout_components/components/books/SmallListIte
 // import { ResourceLoader } from "./container_components/resource-loader.tsx";
 import { CurrentUserLoader } from "./container_components/current-user-loader.tsx";
 import {UserInfo} from "./container_components/user-info.tsx";
+import { UserLoader } from "./container_components/user-loader.jsx";
 
 const LeftSdeComponent = ({ title }: { title: string }) => {
   return <h2 style={{ backgroundColor: "red" }}>{title}</h2>;
@@ -54,6 +55,10 @@ function App() {
       <CurrentUserLoader>
         <UserInfo/>
       </CurrentUserLoader>
+
+      <UserLoader userId={"3"}>
+        <UserInfo/>
+      </UserLoader>
     </>
   );
 }
