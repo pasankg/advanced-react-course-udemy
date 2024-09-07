@@ -1,23 +1,28 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { FC, useState, useEffect, ReactNode } from "react";
+import { User } from "./user-info";
 
-export const CurrentUserLoader = ({ children }) => {
-  const [user, setUser] = useState(null);
+export interface CurrentUserLoaderProps {
+  children?: ReactNode;
+}
+
+export const CurrentUserLoader: FC<CurrentUserLoaderProps> = ({ children }) => {
+  const [user, setUser] = useState<User>();
 
   useEffect(() => {
     (async () => {
-      const response = await axios.get("/current-user");
-      console.log(response.data)
-      setUser(response.data);
+      const { data } = await axios.get("/api/current-user");
+      console.log(data);
+      setUser(data || {});
     })();
   }, []);
 
   return (
     <>
-      {React.Children.map(children, (child) => {       
+      {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           // cloneElement helps to attach addional props to element.
-          return React.cloneElement(child, { user });
+          return React.cloneElement(child, { ...user });
         }
         return child;
       })}

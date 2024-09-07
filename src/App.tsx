@@ -28,12 +28,12 @@ function App() {
       {/* <SplitScreen Left={LeftSdeComponent} Right={RightSideComponent} leftWidth = {1} rightWidth = {2}/> */}
 
       {/* version 2 */}
-      <SplitScreen leftWidth={1} rightWidth={2}>
+      {/* <SplitScreen leftWidth={1} rightWidth={2}>
         <LeftSdeComponent title={`I'm Left Side`} />
         <RightSideComponent title={`I'm Right Side`} />
-      </SplitScreen>
+      </SplitScreen> */}
 
-      <List
+      {/* <List
         items={dataAuthors}
         sourceName={"author"}
         ItemComponent={SmallAuthorListItem}
@@ -49,7 +49,7 @@ function App() {
         items={dataBooks}
         sourceName={"book"}
         ItemComponent={SmallBookListItem}
-      />
+      /> */}
 
       <CurrentUserLoader>
         <UserInfo/>
