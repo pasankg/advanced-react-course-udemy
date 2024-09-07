@@ -1,13 +1,14 @@
 import { FC } from "react";
 
 export interface Book {
+  id?: string;
   name?: string;
   title?: string;
   pages?: number;
   price?: number;
 }
 
-export interface User {
+export interface UserInfo {
   id?: string;
   name?: string;
   age?: number;
@@ -16,7 +17,7 @@ export interface User {
   // books?: Book[];
 }
 
-export const UserInfo: FC<User> = (props) => {
+export const UserInfo: FC<UserInfo> = (props) => {
   if (!props) return null;
   const { name, age, country, books } = props;
   return (

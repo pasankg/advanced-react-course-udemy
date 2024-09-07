@@ -1,10 +1,36 @@
-import { CurrentUserLoader } from "./current-user-loader";
-import { UserInfo } from "./user-info";
+import React, { FC, ReactNode, useEffect, useState } from "react";
+import axios from "axios";
 
-export const ResourceLoader = () => {
+export interface ResourceLoaderProps {
+  children?: ReactNode;
+  resourceUrl?: string;
+  resourceName?: string;
+}
+
+export const ResourceLoader: FC<ResourceLoaderProps> = ({
+  children,
+  resourceUrl,
+  resourceName,
+}) => {
+  const [resource, setResource] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const { data } = await axios.get(`${resourceUrl}`);
+      console.log(data);
+      setResource(data || {});
+    })();
+  }, [resourceUrl]);
+
   return (
-    <CurrentUserLoader>
-      <UserInfo />
-    </CurrentUserLoader>
+    <>
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          // cloneElement helps to attach addional props to element.
+          return React.cloneElement(child, { [resourceName]: resource });
+        }
+        return child;
+      })}
+    </>
   );
 };

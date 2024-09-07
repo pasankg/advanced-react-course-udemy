@@ -11,8 +11,10 @@ import SmallBookListItem from "./layout_components/components/books/SmallListIte
 
 // import { ResourceLoader } from "./container_components/resource-loader.tsx";
 import { CurrentUserLoader } from "./container_components/current-user-loader.tsx";
-import {UserInfo} from "./container_components/user-info.tsx";
+import { UserInfo } from "./container_components/user-info.tsx";
 import { UserLoader } from "./container_components/user-loader.jsx";
+import { ResourceLoader } from "./container_components/resource-loader.tsx";
+import { BookInfo } from "./container_components/book-info.tsx";
 
 const LeftSdeComponent = ({ title }: { title: string }) => {
   return <h2 style={{ backgroundColor: "red" }}>{title}</h2>;
@@ -38,27 +40,35 @@ function App() {
         items={dataAuthors}
         sourceName={"author"}
         ItemComponent={SmallAuthorListItem}
-      />
+      />*/}
 
-      <List
+      {/* <List
         items={dataAuthors}
         sourceName={"author"}
         ItemComponent={LargeAuthorListItem}
-      />
+      />*/}
 
-      <List
+      {/* <List
         items={dataBooks}
         sourceName={"book"}
         ItemComponent={SmallBookListItem}
       /> */}
 
       <CurrentUserLoader>
-        <UserInfo/>
+        <UserInfo />
       </CurrentUserLoader>
 
       <UserLoader userId={"3"}>
-        <UserInfo/>
+        <UserInfo />
       </UserLoader>
+
+      <ResourceLoader resourceUrl={"/api/books/23"} resourceName={"BookInfo"}>
+        <BookInfo />
+      </ResourceLoader>
+
+      <ResourceLoader resourceUrl={"/api/users/2"} resourceName={"UserInfo"}>
+        <UserInfo />
+      </ResourceLoader>
     </>
   );
 }
