@@ -54,19 +54,19 @@ function App() {
         ItemComponent={SmallBookListItem}
       /> */}
 
-      <CurrentUserLoader>
+      {/* <CurrentUserLoader>
         <UserInfo />
-      </CurrentUserLoader>
+      </CurrentUserLoader> */}
 
-      <UserLoader userId={"3"}>
+      {/* <UserLoader userId={"3"}>
         <UserInfo />
-      </UserLoader>
+      </UserLoader> */}
 
-      <ResourceLoader resourceUrl={"/api/books/23"} resourceName={"BookInfo"}>
+      {/* <ResourceLoader resourceUrl={"/api/books/23"} resourceName={"BookInfo"}>
         <BookInfo />
-      </ResourceLoader>
+      </ResourceLoader> */}
 
-      <ResourceLoader resourceUrl={"/api/users/2"} resourceName={"UserInfo"}>
+      <ResourceLoader resourceUrl={"/api/users/2"} resourceName={"UserInfoProp"}>
         <UserInfo />
       </ResourceLoader>
     </>

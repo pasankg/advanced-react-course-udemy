@@ -8,6 +8,9 @@ export interface Book {
   price?: number;
 }
 
+export interface UserInfoResponse {
+  UserInfoProp: UserInfo;
+}
 export interface UserInfo {
   id?: string;
   name?: string;
@@ -17,9 +20,9 @@ export interface UserInfo {
   // books?: Book[];
 }
 
-export const UserInfo: FC<UserInfo> = (props) => {
+export const UserInfo: FC<UserInfoResponse | UserInfo> = (props) => {
   if (!props) return null;
-  const { name, age, country, books } = props;
+  const { name, age, country, books } = props?.UserInfoProp || props;
   return (
     <>
       <h1>{`Name: ${name}`}</h1>
