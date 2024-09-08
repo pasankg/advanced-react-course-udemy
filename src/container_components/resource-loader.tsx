@@ -27,10 +27,15 @@ export const ResourceLoader: FC<ResourceLoaderProps> = ({
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
           // cloneElement helps to attach addional props to element.
-          return React.cloneElement(child, { [resourceName]: resource });
+          return React.cloneElement(child, { [resourceName]: resource });   // { 'dynamicKey': resource }
         }
         return child;
       })}
     </>
   );
 };
+
+/**
+ *  { UserInfo: { id, name, age }}
+ * { id, name, age }
+ */
